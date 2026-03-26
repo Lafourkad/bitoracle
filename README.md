@@ -361,7 +361,7 @@ MIT
 - [MuSig2 (BIP-327)](https://github.com/bitcoin/bips/blob/master/bip-0327.mediawiki)
 - [Schnorr Signatures (BIP-340)](https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki)
 - [BitOracle Testnet Explorer](https://testnet.opnet.org)
-- [Telegram Community](https://t.me/bitoracle)
+- [Telegram Community](https://t.me/+IcOmSUABps85MTdk)
 
 ---
 
