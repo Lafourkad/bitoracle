@@ -1,0 +1,7 @@
+{
+  "network": "opnetTestnet",
+  "nftAddress": "opt1sqzchetuzymeewfkj8et2hvm2pkjg2ctpksm3mtun",
+  "oracleRegistryV4Address": "opt1sqp0ce6tqqk3z4wwajgzufdm4vrwf234zjunljqkn",
+  "priceFeedMuSig2Address": "opt1sqr8d8dfjjxp6v9gk60fl8snk0fy7fwhe45cpj6va",
+  "vrfAddress": "opt1sqz0v22jrfpj2630rxlu6lwg5k6qru6d9xq4uxkty"
+}

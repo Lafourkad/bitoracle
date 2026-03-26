@@ -1,0 +1,68 @@
+{
+    "$schema": "https://raw.githubusercontent.com/aspect-dev/asconfig/main/asconfig.schema.json",
+    "targets": {
+        "registry": {
+            "outFile": "build/OracleRegistry.wasm",
+            "use": [
+                "abort=src/oracle/index-registry/abort"
+            ],
+            "entry": "src/oracle/index-registry.ts"
+        },
+        "pricefeed": {
+            "outFile": "build/PriceFeed.wasm",
+            "use": [
+                "abort=src/oracle/index-pricefeed/abort"
+            ],
+            "entry": "src/oracle/index-pricefeed.ts"
+        },
+        "pricefeedpull": {
+            "outFile": "build/PriceFeedPull.wasm",
+            "use": [
+                "abort=src/oracle/index-pricefeedpull/abort"
+            ],
+            "entry": "src/oracle/index-pricefeedpull.ts"
+        },
+        "nft": {
+            "outFile": "build/OracleNodeNFT.wasm",
+            "use": [
+                "abort=src/oracle/index-nft/abort"
+            ],
+            "entry": "src/oracle/index-nft.ts"
+        },
+        "vrf": {
+            "outFile": "build/VRF.wasm",
+            "use": [
+                "abort=src/oracle/index-vrf/abort"
+            ],
+            "entry": "src/oracle/index-vrf.ts"
+        },
+        "pricefeedmusig2": {
+            "outFile": "build/PriceFeedMuSig2.wasm",
+            "use": [
+                "abort=src/oracle/index-pricefeedmusig2/abort"
+            ],
+            "entry": "src/oracle/index-pricefeedmusig2.ts"
+        }
+    },
+    "options": {
+        "sourceMap": false,
+        "optimizeLevel": 3,
+        "shrinkLevel": 1,
+        "converge": true,
+        "noAssert": false,
+        "enable": [
+            "sign-extension",
+            "mutable-globals",
+            "nontrapping-f2i",
+            "bulk-memory",
+            "simd",
+            "reference-types",
+            "multi-value"
+        ],
+        "runtime": "stub",
+        "memoryBase": 0,
+        "initialMemory": 1,
+        "exportStart": "start",
+        "transform": "@btc-vision/opnet-transform"
+    }
+}

@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BitOracle — Trustless Oracle Network for Bitcoin DeFi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #0d0d0d;
+      --surface: #1a1a1a;
+      --border: #2a2a2a;
+      --accent: #f7931a;
+      --text: #e0e0e0;
+      --text-muted: #888;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    header {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--bg);
+      font-size: 1rem;
+    }
+
+    nav a {
+      color: var(--text);
+      margin-left: 32px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 100px 0 80px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    .btn-primary:hover {
+      background: #e8850f;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+      text-align: center;
+    }
+
+    .stat-item h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .stat-item p {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      margin-top: 4px;
+    }
+
+    /* Section */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 48px;
+    }
+
+    /* How it Works */
+    .how-it-works {
+      background: var(--surface);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    .step-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      transition: border-color 0.2s;
+    }
+
+    .step-card:hover {
+      border-color: var(--accent);
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--bg);
+      font-size: 1.25rem;
+      margin-bottom: 20px;
+    }
+
+    .step-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    .step-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      transition: border-color 0.2s;
+    }
+
+    .service-card:hover {
+      border-color: var(--accent);
+    }
+
+    .service-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .service-card .status {
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      background: var(--accent);
+      color: var(--bg);
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .service-card .coming {
+      background: var(--border);
+      color: var(--text-muted);
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Mint Section */
+    .mint-section {
+      background: var(--surface);
+    }
+
+    .mint-card {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .mint-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .mint-card .subtitle {
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    .mint-price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .mint-price span {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .mint-network {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      margin-bottom: 32px;
+    }
+
+    .mint-btn {
+      width: 100%;
+      padding: 16px;
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+    }
+
+    .mint-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .benefits {
+      text-align: left;
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .benefits h4 {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .benefits ul {
+      list-style: none;
+    }
+
+    .benefits li {
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .benefits li::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Roadmap */
+    .roadmap {
+      background: var(--surface);
+    }
+
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .roadmap-phase {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      transition: border-color 0.2s;
+    }
+
+    .roadmap-phase:hover {
+      border-color: var(--accent);
+    }
+
+    .roadmap-phase.completed {
+      border-color: var(--accent);
+    }
+
+    .phase-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .phase-badge {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      background: var(--border);
+      color: var(--text);
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .roadmap-phase.completed .phase-badge {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    .roadmap-phase h3 {
+      font-size: 1.1rem;
+    }
+
+    .roadmap-phase p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 48px 0 32px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h4 {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section li {
+      margin-bottom: 8px;
+    }
+
+    .footer-section a {
+      color: var(--text);
+    }
+
+    .footer-section a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-bottom p {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    .testnet-info {
+      background: var(--surface);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 16px;
+    }
+
+    .testnet-info p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .testnet-info code {
+      color: var(--accent);
+      font-size: 0.75rem;
+      word-break: break-all;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.25rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      nav {
+        display: none;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .mint-card {
+        padding: 28px 20px;
+      }
+
+      .mint-price {
+        font-size: 2rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    /* Mint States */
+    .mint-status {
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+    }
+
+    .mint-status.success {
+      background: rgba(47, 189, 85, 0.1);
+      border: 1px solid rgba(47, 189, 85, 0.3);
+      color: #2fbd55;
+    }
+
+    .mint-status.pending {
+      background: rgba(247, 147, 26, 0.1);
+      border: 1px solid rgba(247, 147, 26, 0.3);
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <div class="logo-icon">B</div>
+          BitOracle
+        </div>
+        <nav>
+          <a href="#how-it-works">How it Works</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#mint">Mint NFT</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#calculator">Calculator</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1><span>BitOracle</span>: Trustless<br>Oracle Network for Bitcoin DeFi</h1>
+      <p>The first trustless oracle network built natively on Bitcoin L1</p>
+      <div class="hero-buttons">
+        <a href="#mint" class="btn btn-primary">Mint Founder Node</a>
+        <a href="https://explorer.opnet.org" target="_blank" class="btn btn-secondary">View on Explorer</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <div class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <h3>100</h3>
+          <p>Total Supply</p>
+        </div>
+        <div class="stat-item">
+          <h3>5,000 sats</h3>
+          <p>Price per NFT</p>
+        </div>
+        <div class="stat-item">
+          <h3>OpNet Testnet</h3>
+          <p>Network</p>
+        </div>
+        <div class="stat-item">
+          <h3>4-of-6 Committee</h3>
+          <p>Threshold Signatures</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- How it Works -->
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <h2 class="section-title">How it Works</h2>
+      <p class="section-subtitle">Trustless price feeds powered by MuSig2 Schnorr signatures on Bitcoin</p>
+      <div class="steps">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Oracle Nodes Agree Off-Chain</h3>
+          <p>Oracle nodes agree on price off-chain using ThresholdML-DSA (quantum-resistant, t-of-n committee). No single point of failure.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>MuSig2 Aggregated Signature</h3>
+          <p>A single 64-byte MuSig2 Schnorr signature is submitted on-chain — 98% cheaper than naive multi-sig approaches.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Verified Trustlessly On-Chain</h3>
+          <p>Smart contracts on OpNet verify the signature trustlessly. No admin key, no trusted party, fully decentralized.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">What is BitOracle?</h2>
+      <div style="max-width: 800px; margin: 0 auto;">
+        <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 24px;">
+          Bitcoin L1 has no native oracle. This means dApps building on OpNet — Bitcoin's smart contract layer — have no way to access real-world data like price feeds without trusting a centralized third party. That trust assumption defeats the purpose of building on Bitcoin in the first place.
+        </p>
+        <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 24px;">
+          BitOracle solves this with a decentralized network of independent node operators who cryptographically sign real-world data. Instead of trusting a single entity, dApps receive data backed by a threshold of independent signers — making it impossible for any single actor to corrupt the feed.
+        </p>
+        
+        <!-- Key Insight Callout -->
+        <div style="background: var(--surface); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; padding: 24px; margin: 32px 0;">
+          <h4 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">Key Insight</h4>
+          <p style="color: var(--text); margin: 0;">
+            BitOracle uses a <strong>pull model</strong> rather than traditional push oracles. Instead of waiting for periodic on-chain updates, dApps embed a fresh oracle signature directly in their transaction. This signature is verified atomically during transaction execution — meaning you always get the latest data without paying for unnecessary updates or waiting for the next push cycle. It's on-demand, pay-per-use, and far more capital efficient.
+          </p>
+        </div>
+
+        <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 24px;">
+          Security is built on <strong>ThresholdML-DSA</strong> — a quantum-resistant signing scheme based on FIPS-204, the new post-quantum cryptography standard. No single node can forge a valid signature; it requires agreement from a threshold (t) of the n-node committee. Even if some nodes are compromised, the oracle remains secure.
+        </p>
+        <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 24px;">
+          To keep costs low, BitOracle uses <strong>MuSig2 Schnorr signatures</strong>. The aggregated signature submitted on-chain is only 64 bytes — dramatically smaller than naive multi-sig approaches. This translates to real savings: approximately $5-10 per oracle update, making Bitcoin-native DeFi economically viable.
+        </p>
+        <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 24px;">
+          Node operators are held accountable through <strong>Discreet Log Contracts (DLCs)</strong> on Bitcoin L1. Operators stake BTC as collateral, and if they misbehave — submitting fraudulent data or going offline — their stake is automatically slashed. This crypto-economic guarantee ensures nodes have real skin in the game.
+        </p>
+        <p style="font-size: 1.1rem; color: var(--text-muted);">
+          <strong>Founder Node NFTs</strong> give holders the right to operate an oracle node and earn a share of network fees. With only 100 NFTs ever minted, holders receive monthly BTC distributions representing 80% of all oracle fees collected by the network. It's an opportunity to be part of Bitcoin's oracle infrastructure from day one.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Oracle Services</h2>
+      <p class="section-subtitle">Built for Bitcoin DeFi, expanding to serve all on-chain needs</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Price Feeds <span class="status">Live</span></h3>
+          <p>BTC/USD, ETH/USD price feeds with sub-second updates. More pairs coming soon.</p>
+        </div>
+        <div class="service-card">
+          <h3>VRF <span class="status coming">Coming</span></h3>
+          <p>Verifiable Randomness Function for gaming and NFT projects on OpNet.</p>
+        </div>
+        <div class="service-card">
+          <h3>Proof of Reserve <span class="status coming">Coming</span></h3>
+          <p>On-chain verification of reserves for wBTC, stablecoins, and wrapped assets.</p>
+        </div>
+        <div class="service-card">
+          <h3>Cross-chain Data <span class="status coming">Coming</span></h3>
+          <p>Bridge real-world data from other chains to Bitcoin DeFi applications.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mint Section -->
+  <section id="mint" class="mint-section">
+    <div class="container">
+      <h2 class="section-title">Founder Node NFT</h2>
+      <p class="section-subtitle">Get early access to BitOracle and earn from network fees</p>
+      <div class="mint-card">
+        <h3>Founder Node NFT</h3>
+        <p class="subtitle">Get early access to BitOracle</p>
+        
+        <div class="mint-price">5,000 <span>sats</span></div>
+        <p class="mint-network">OpNet Testnet</p>
+
+        <div id="mint-status"></div>
+        
+        <button id="mint-btn" class="btn btn-primary mint-btn" onclick="handleMint()">
+          Connect Wallet
+        </button>
+
+        <div class="benefits">
+          <h4>Holder Benefits</h4>
+          <ul>
+            <li>Earn BTC fees monthly</li>
+            <li>Operate an oracle node</li>
+            <li>80% of network fees distributed to holders</li>
+          </ul>
+        </div>
+
+        <div class="testnet-info">
+          <p>Contract Address:</p>
+          <code>opt1sqpguymtuly6saggfc736z44pnu3repujrvc29gfu</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap -->
+  <section id="roadmap" class="roadmap">
+    <div class="container">
+      <h2 class="section-title">Roadmap</h2>
+      <p class="section-subtitle">Building the future of Bitcoin-native oracle infrastructure</p>
+      <div class="roadmap-grid">
+        <div class="roadmap-phase completed">
+          <div class="phase-header">
+            <span class="phase-badge">Phase 1 ✅</span>
+          </div>
+          <h3>Price Feeds + MuSig2</h3>
+          <p>Price feeds live on testnet. MuSig2 Schnorr 64-byte on-chain verification. ThresholdML-DSA 3-of-3 quantum-safe signing. 98% cheaper than naive multi-sig.</p>
+        </div>
+        <div class="roadmap-phase">
+          <div class="phase-header">
+            <span class="phase-badge">Phase 2</span>
+          </div>
+          <h3>Founder Node NFT + Committee Sampling</h3>
+          <p>100 Founder Node NFTs. OracleRegistry v4 — NFT-gated node registration. Committee sampling: each round randomly selects a 4-of-6 signing group from active nodes (max 6 per ThresholdML-DSA). Monthly BTC fee distribution to NFT holders.</p>
+        </div>
+        <div class="roadmap-phase">
+          <div class="phase-header">
+            <span class="phase-badge">Phase 3</span>
+          </div>
+          <h3>VRF + Multi-Asset Feeds</h3>
+          <p>Verifiable randomness for gaming and NFT projects on OpNet. Expanded price feeds: ETH/USD, BTC/EUR, stablecoins. Deviation threshold + heartbeat update model.</p>
+        </div>
+        <div class="roadmap-phase">
+          <div class="phase-header">
+            <span class="phase-badge">Phase 4</span>
+          </div>
+          <h3>Proof of Reserve + DKG</h3>
+          <p>Trustless reserve verification for wBTC and stablecoins on OpNet. Distributed Key Generation (DKG) for committee key rotation without changing the on-chain public key.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator -->
+  <section id="calculator" style="padding: 80px 0;">
+    <div class="container">
+      <h2 class="section-title">Node Revenue Estimator</h2>
+      <p class="section-subtitle">Estimate your potential earnings as a Founder Node operator</p>
+      
+      <div style="max-width: 700px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 40px;">
+        <!-- Input Controls -->
+        <div style="margin-bottom: 32px;">
+          <label style="display: block; margin-bottom: 12px; color: var(--text); font-weight: 500;">
+            Number of dApps using the oracle: <span id="dapps-value" style="color: var(--accent);">5</span>
+          </label>
+          <input type="range" id="dapps-slider" min="1" max="50" value="5" style="width: 100%; accent-color: var(--accent);">
+          <div style="display: flex; justify-content: space-between; color: var(--text-muted); font-size: 0.8rem; margin-top: 4px;">
+            <span>1</span>
+            <span>50</span>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 32px;">
+          <label style="display: block; margin-bottom: 12px; color: var(--text); font-weight: 500;">
+            Requests per dApp per day: <span id="requests-value" style="color: var(--accent);">50</span>
+          </label>
+          <input type="range" id="requests-slider" min="10" max="500" value="50" style="width: 100%; accent-color: var(--accent);">
+          <div style="display: flex; justify-content: space-between; color: var(--text-muted); font-size: 0.8rem; margin-top: 4px;">
+            <span>10</span>
+            <span>500</span>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 32px;">
+          <label style="display: block; margin-bottom: 12px; color: var(--text); font-weight: 500;">
+            Fee per request (sats):
+          </label>
+          <input type="number" id="fee-input" value="2000" min="100" max="100000" style="width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; color: var(--text); font-size: 1rem;">
+        </div>
+
+        <!-- Results -->
+        <div style="border-top: 1px solid var(--border); padding-top: 32px;">
+          <h3 style="font-size: 1rem; color: var(--text-muted); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">Estimated Returns</h3>
+          
+          <div style="display: grid; gap: 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; background: var(--bg); border-radius: 8px;">
+              <span style="color: var(--text-muted);">Daily Requests Total</span>
+              <span id="daily-requests" style="color: var(--text); font-weight: 600;">250</span>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; background: var(--bg); border-radius: 8px;">
+              <span style="color: var(--text-muted);">Monthly Revenue (Gross)</span>
+              <div style="text-align: right;">
+                <span id="monthly-gross-sats" style="color: var(--text); font-weight: 600;">15,000,000 sats</span>
+                <span id="monthly-gross-usd" style="color: var(--text-muted); font-size: 0.9rem; display: block;">≈ $10,500 USD</span>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; background: var(--bg); border-radius: 8px;">
+              <span style="color: var(--text-muted);">Network Costs (Shared)</span>
+              <div style="text-align: right;">
+                <span style="color: var(--text); font-weight: 600;">~30,857 sats</span>
+                <span style="color: var(--text-muted); font-size: 0.9rem; display: block;">≈ $216/month ÷ 100 nodes</span>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px; background: linear-gradient(135deg, rgba(247, 147, 26, 0.1) 0%, rgba(247, 147, 26, 0.05) 100%); border: 1px solid var(--accent); border-radius: 8px;">
+              <span style="color: var(--text); font-weight: 600;">Net Monthly Revenue per Node</span>
+              <div style="text-align: right;">
+                <span id="net-revenue-sats" style="color: var(--accent); font-weight: 700; font-size: 1.25rem;">119,691 sats</span>
+                <span id="net-revenue-usd" style="color: var(--text-muted); font-size: 0.9rem; display: block;">≈ $83.78 USD</span>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; background: var(--bg); border-radius: 8px;">
+              <span style="color: var(--text-muted);">Net Revenue in BTC</span>
+              <span id="net-revenue-btc" style="color: var(--text); font-weight: 600;">0.001197 BTC</span>
+            </div>
+          </div>
+
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 24px; padding: 16px; background: var(--bg); border-radius: 8px; border-left: 3px solid var(--border);">
+            <strong>Note:</strong> Estimates based on 100 active nodes, 80% fee distribution to node operators. Network costs assume ~$5 per signing round × 2 updates/hour × 24h × 30 days ≈ $216/month shared across all nodes. Actual revenue depends on network adoption and market conditions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>BitOracle</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">The first trustless oracle network built natively on Bitcoin L1.</p>
+          <div class="testnet-info">
+            <p>Contract:</p>
+            <code>opt1sqpguymtuly6saggfc736z44pnu3repujrvc29gfu</code>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Network</h4>
+          <ul>
+            <li><a href="https://explorer.opnet.org" target="_blank">Explorer</a></li>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">GitHub</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="https://x.com/0xGrug" target="_blank">𝕏 @0xGrug (Founder)</a></li>
+            <li><a href="https://t.me/+88i5QzgR9BEwZTk0" target="_blank">Telegram Group</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 BitOracle. Built on OpNet.</p>
+        <p>Network: OpNet Testnet</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mock wallet connection and mint flow
+    let walletConnected = false;
+    let minting = false;
+
+    function handleMint() {
+      const btn = document.getElementById('mint-btn');
+      const status = document.getElementById('mint-status');
+
+      if (!walletConnected) {
+        // Simulate wallet connection
+        btn.disabled = true;
+        btn.textContent = 'Connecting...';
+        
+        setTimeout(() => {
+          walletConnected = true;
+          btn.disabled = false;
+          btn.textContent = 'Mint NFT';
+          status.innerHTML = '<div class="mint-status success">Wallet connected</div>';
+        }, 1500);
+        return;
+      }
+
+      if (minting) return;
+
+      // Simulate minting
+      minting = true;
+      btn.disabled = true;
+      btn.textContent = 'Minting...';
+      status.innerHTML = '<div class="mint-status pending">Transaction pending...</div>';
+
+      setTimeout(() => {
+        btn.textContent = 'Minted!';
+        status.innerHTML = '<div class="mint-status success">Successfully minted Founder Node NFT!</div>';
+      }, 2000);
+    }
+
+    // Calculator functionality
+    const BTC_PRICE_USD = 70000;
+    const NODE_COUNT = 100;
+    const FEE_DISTRIBUTION = 0.80;
+    const MONTHLY_NETWORK_COST_USD = 216; // $5 * 2 * 24 * 30
+
+    function formatNumber(num) {
+      return num.toLocaleString('en-US');
+    }
+
+    function formatSats(sats) {
+      if (sats >= 1000000) {
+        return (sats / 1000000).toFixed(2) + 'M sats';
+      } else if (sats >= 1000) {
+        return formatNumber(Math.round(sats)) + ' sats';
+      }
+      return sats + ' sats';
+    }
+
+    function updateCalculator() {
+      const dapps = parseInt(document.getElementById('dapps-slider').value);
+      const requestsPerDapp = parseInt(document.getElementById('requests-slider').value);
+      const feePerRequest = parseInt(document.getElementById('fee-input').value) || 2000;
+
+      // Update display values
+      document.getElementById('dapps-value').textContent = dapps;
+      document.getElementById('requests-value').textContent = requestsPerDapp;
+
+      // Calculate
+      const dailyRequests = dapps * requestsPerDapp;
+      const monthlyRequests = dailyRequests * 30;
+      const monthlyGrossSats = monthlyRequests * feePerRequest;
+      const monthlyGrossUsd = (monthlyGrossSats / 100000000) * BTC_PRICE_USD;
+
+      // Network cost per node (in sats)
+      const networkCostPerNodeSats = (MONTHLY_NETWORK_COST_USD / BTC_PRICE_USD) * 100000000;
+
+      // Net revenue per node (gross * 80% / 100 nodes)
+      const netRevenuePerNodeSats = (monthlyGrossSats * FEE_DISTRIBUTION) / NODE_COUNT;
+      const netRevenuePerNodeUsd = (netRevenuePerNodeSats / 100000000) * BTC_PRICE_USD;
+      const netRevenuePerNodeBtc = netRevenuePerNodeSats / 100000000;
+
+      // Update UI
+      document.getElementById('daily-requests').textContent = formatNumber(dailyRequests);
+      document.getElementById('monthly-gross-sats').textContent = formatSats(monthlyGrossSats);
+      document.getElementById('monthly-gross-usd').textContent = '≈ $' + formatNumber(Math.round(monthlyGrossUsd)) + ' USD';
+      document.getElementById('net-revenue-sats').textContent = formatSats(Math.round(netRevenuePerNodeSats));
+      document.getElementById('net-revenue-usd').textContent = '≈ $' + formatNumber(netRevenuePerNodeUsd.toFixed(2)) + ' USD';
+      document.getElementById('net-revenue-btc').textContent = netRevenuePerNodeBtc.toFixed(6) + ' BTC';
+    }
+
+    // Add event listeners
+    document.getElementById('dapps-slider').addEventListener('input', updateCalculator);
+    document.getElementById('requests-slider').addEventListener('input', updateCalculator);
+    document.getElementById('fee-input').addEventListener('input', updateCalculator);
+
+    // Initial calculation
+    updateCalculator();
+  </script>
+</body>
+</html>

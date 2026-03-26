@@ -1,0 +1,281 @@
+{
+    "functions": [
+        {
+            "name": "registerOracle",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "pubKeyLow",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "pubKeyHigh",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "stakeAmount",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "success",
+                    "type": "BOOL"
+                }
+            ]
+        },
+        {
+            "name": "addOracle",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "oracle",
+                    "type": "ADDRESS"
+                },
+                {
+                    "name": "pubKeyLow",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "pubKeyHigh",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "success",
+                    "type": "BOOL"
+                }
+            ]
+        },
+        {
+            "name": "setNFTAddress",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "nftAddress",
+                    "type": "ADDRESS"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "success",
+                    "type": "BOOL"
+                }
+            ]
+        },
+        {
+            "name": "registerNode",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "tokenId",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "schnorrPubKey",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "success",
+                    "type": "BOOL"
+                }
+            ]
+        },
+        {
+            "name": "getNFTAddress",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "nftAddress",
+                    "type": "ADDRESS"
+                }
+            ]
+        },
+        {
+            "name": "requestUnstake",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "success",
+                    "type": "BOOL"
+                }
+            ]
+        },
+        {
+            "name": "publishFraudProof",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "oracleAddress",
+                    "type": "ADDRESS"
+                },
+                {
+                    "name": "price1",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "price2",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "blockNum",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "sig1",
+                    "type": "BYTES"
+                },
+                {
+                    "name": "sig2",
+                    "type": "BYTES"
+                },
+                {
+                    "name": "asset",
+                    "type": "BYTES"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "success",
+                    "type": "BOOL"
+                }
+            ]
+        },
+        {
+            "name": "isActive",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "oracleAddress",
+                    "type": "ADDRESS"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "active",
+                    "type": "BOOL"
+                }
+            ]
+        },
+        {
+            "name": "getStake",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "oracleAddress",
+                    "type": "ADDRESS"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "stake",
+                    "type": "UINT256"
+                }
+            ]
+        },
+        {
+            "name": "isSlashed",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "oracleAddress",
+                    "type": "ADDRESS"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "slashed",
+                    "type": "BOOL"
+                }
+            ]
+        },
+        {
+            "name": "getPubKey",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "oracleAddress",
+                    "type": "ADDRESS"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "pubKeyLow",
+                    "type": "UINT256"
+                }
+            ]
+        },
+        {
+            "name": "getOracleCount",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "count",
+                    "type": "UINT256"
+                }
+            ]
+        },
+        {
+            "name": "getOracleAtIndex",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "index",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "oracleAddress",
+                    "type": "ADDRESS"
+                }
+            ]
+        },
+        {
+            "name": "getOracleInfo",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "oracleAddress",
+                    "type": "ADDRESS"
+                }
+            ],
+            "outputs": []
+        }
+    ],
+    "events": []
+}

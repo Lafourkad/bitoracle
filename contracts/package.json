@@ -1,0 +1,39 @@
+{
+  "name": "@btc-oracle/contracts",
+  "version": "0.1.0",
+  "description": "BTC Oracle Network \u2014 OpNet Smart Contracts",
+  "type": "module",
+  "scripts": {
+    "build": "npm run build:registry && npm run build:pricefeed",
+    "build:nft": "npx asc src/oracle/index-nft.ts --config asconfig.json --target nft",
+    "build:registry": "npx asc src/oracle/index-registry.ts --config asconfig.json --target registry",
+    "build:pricefeed": "npx asc src/oracle/index-pricefeed.ts --config asconfig.json --target pricefeed",
+    "build:pricefeedpull": "npx asc src/oracle/index-pricefeedpull.ts --config asconfig.json --target pricefeedpull",
+    "lint": "prettier --check src/",
+    "format": "prettier --write src/",
+    "test": "echo 'Tests require separate TypeScript test package - see tests/'",
+    "deploy:nft": "npx ts-node scripts/deploy.ts nft",
+    "deploy:nft:mainnet": "npx ts-node scripts/deploy.ts nft mainnet",
+    "deploy:marketplace": "npx ts-node scripts/deploy.ts marketplace",
+    "deploy:marketplace:mainnet": "npx ts-node scripts/deploy.ts marketplace mainnet",
+    "build:vrf": "npx asc src/oracle/index-vrf.ts --config asconfig.json --target vrf",
+    "build:pricefeedmusig2": "npx asc src/oracle/index-pricefeedmusig2.ts --config asconfig.json --target pricefeedmusig2"
+  },
+  "dependencies": {
+    "@btc-vision/as-bignum": "0.1.2",
+    "@btc-vision/assemblyscript": "0.29.2",
+    "@btc-vision/btc-runtime": "^1.11.0",
+    "@btc-vision/opnet-transform": "1.2.0"
+  },
+  "devDependencies": {
+    "@btc-vision/bitcoin": "7.0.0-rc.4",
+    "@btc-vision/transaction": "1.8.0-rc.4",
+    "opnet": "1.8.1-rc.5",
+    "prettier": "^3.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  }
+}

@@ -1,0 +1,98 @@
+{
+    "functions": [
+        {
+            "name": "setAggPubKey",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "pubKeyLow",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "success",
+                    "type": "BOOL"
+                }
+            ]
+        },
+        {
+            "name": "requestRandom",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "seed",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "requestId",
+                    "type": "UINT256"
+                }
+            ]
+        },
+        {
+            "name": "fulfillRandom",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "requestId",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "proof",
+                    "type": "BYTES"
+                },
+                {
+                    "name": "blockHashBytes",
+                    "type": "BYTES"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "UINT256"
+                }
+            ]
+        },
+        {
+            "name": "getOutput",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "requestId",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "UINT256"
+                }
+            ]
+        },
+        {
+            "name": "getRequest",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "requestId",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        }
+    ],
+    "events": []
+}

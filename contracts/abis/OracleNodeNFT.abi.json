@@ -1,0 +1,117 @@
+{
+    "functions": [
+        {
+            "name": "adminMint",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "to",
+                    "type": "ADDRESS"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "mint",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "to",
+                    "type": "ADDRESS"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "setPayoutAddress",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "tokenId",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "btcAddress",
+                    "type": "STRING"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "getPayoutAddress",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "tokenId",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "setOracleKey",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "tokenId",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "schnorrPubKey",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "getOracleKey",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "tokenId",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "setMintPrice",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "price",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "setTreasuryAddress",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "btcAddress",
+                    "type": "STRING"
+                }
+            ],
+            "outputs": []
+        }
+    ],
+    "events": []
+}

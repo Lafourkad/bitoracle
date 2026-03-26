@@ -1,0 +1,91 @@
+{
+    "functions": [
+        {
+            "name": "verifyAndGetPrice",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "asset",
+                    "type": "BYTES"
+                },
+                {
+                    "name": "price",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "blockNum",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "oracleAddr",
+                    "type": "ADDRESS"
+                },
+                {
+                    "name": "signature",
+                    "type": "BYTES"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "price",
+                    "type": "UINT256"
+                }
+            ]
+        },
+        {
+            "name": "verifyAndGetPriceQuorum",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "asset",
+                    "type": "BYTES"
+                },
+                {
+                    "name": "price",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "blockNum",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "oracles",
+                    "type": "ADDRESS"
+                },
+                {
+                    "name": "sigs",
+                    "type": "BYTES"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "price",
+                    "type": "UINT256"
+                }
+            ]
+        },
+        {
+            "name": "setRegistry",
+            "type": "Function",
+            "payable": false,
+            "onlyOwner": false,
+            "inputs": [
+                {
+                    "name": "registry",
+                    "type": "ADDRESS"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "success",
+                    "type": "BOOL"
+                }
+            ]
+        }
+    ],
+    "events": []
+}

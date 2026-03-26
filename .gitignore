@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+contracts/node_modules/
+node/node_modules/
+frontend/node_modules/
+frontend-mint/node_modules/
+
+# Keys - NEVER COMMIT
+node/keys/*.json
+*.pem
+*.key
+
+# Build artifacts
+*.wasm
+*.wasm.map
+build/
+dist/
+
+# Environment
+.env
+.env.*
+node.env
+keys.json
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+*.log
+.otzi-src/
+frontend-build/
