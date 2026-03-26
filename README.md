@@ -97,7 +97,7 @@ Each oracle committee signs **one price per Bitcoin block**. This ensures:
 
 ### Not Implemented (Planned)
 
-- [ ] **Committee VRF Selection** — 7-of-100 nodes selected per round
+- [ ] **Committee VRF Selection** — 10-of-100 nodes selected per round
 - [ ] **DLC Stake Locking** — Bitcoin-locked stake for Sybil resistance
 - [ ] **Reputation System** — Weighted voting by oracle age/uptime
 - [ ] **Off-chain VRF Service** — Daemon to fulfill VRF requests
@@ -280,7 +280,7 @@ bitoracle/
 
 - [ ] DLC stake locking (0.05 BTC P2WSH 2-of-2)
 - [ ] Reputation weighting system
-- [ ] Committee VRF selection (7-of-100 per round)
+- [ ] Committee VRF selection (10-of-100 per round)
 
 ### Phase 10: Economic Model ()
 
