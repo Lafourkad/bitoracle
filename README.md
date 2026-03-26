@@ -118,7 +118,7 @@ Each oracle committee signs **one price per Bitcoin block**. This ensures:
 ### Anti-Sybil (Planned)
 - **DLC Stake:** 0.05 BTC locked in 2-of-2 P2WSH (oracle + protocol)
 - **Reputation Weight:** New oracles have reduced voting power for 30 days
-- **Committee Sampling:** VRF selects 7 nodes per round — attacker needs 51% of 100 nodes AND luck
+- **Committee Sampling:** VRF selects 10 nodes per round — attacker needs 51% of 100 nodes AND luck
 
 ### Slashing Conditions
 
