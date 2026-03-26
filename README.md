@@ -4,7 +4,7 @@
 
 BitOracle provides trustless price feeds and verifiable randomness to smart contracts on OpNet. 100% BTC economy — no tokens, just sats.
 
-> ⚠️ **TESTNET ONLY** — This project is in active development. Mainnet deployment planned for Q3 2026.
+> ⚠️ **TESTNET ONLY** — This project is in active development. Mainnet deployment planned for .
 
 ---
 
@@ -276,33 +276,33 @@ bitoracle/
 - [ ] VRF integration tests
 - [ ] VRF documentation
 
-### Phase 9: Sybil Resistance (Q2 2026)
+### Phase 9: Sybil Resistance ()
 
 - [ ] DLC stake locking (0.05 BTC P2WSH 2-of-2)
 - [ ] Reputation weighting system
 - [ ] Committee VRF selection (7-of-100 per round)
 
-### Phase 10: Economic Model (Q2 2026)
+### Phase 10: Economic Model ()
 
 - [ ] Treasury multisig (2-of-3)
 - [ ] Fee distribution contract
 - [ ] Node operator rewards
 
-### Phase 11: Monitoring (Q3 2026)
+### Phase 11: Monitoring ()
 
 - [ ] Automated fraud detection
 - [ ] Slashing automation
 - [ ] Network health dashboard
 - [ ] Alert system
 
-### Phase 12: Mainnet (Q3 2026)
+### Phase 12: Mainnet ()
 
 - [ ] Security audit
 - [ ] Mainnet NFT price (0.05 BTC)
 - [ ] Mainnet deployment
 - [ ] Bug bounty program
 
-### Phase 13: Scale (Q4 2026)
+### Phase 13: Scale ()
 
 - [ ] 100+ oracle nodes
 - [ ] Multi-asset support (ETH/USD, SOL/USD, etc.)
@@ -345,7 +345,7 @@ This project is in active development. Contributions welcome:
 
 **Status:** Not audited yet
 
-Planned audit before mainnet (Q3 2026). Current code should NOT be used for production/mainnet funds.
+Planned audit before mainnet (). Current code should NOT be used for production/mainnet funds.
 
 ---
 
@@ -361,6 +361,7 @@ MIT
 - [MuSig2 (BIP-327)](https://github.com/bitcoin/bips/blob/master/bip-0327.mediawiki)
 - [Schnorr Signatures (BIP-340)](https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki)
 - [BitOracle Testnet Explorer](https://testnet.opnet.org)
+- [Telegram Community](https://t.me/bitoracle)
 
 ---
 
